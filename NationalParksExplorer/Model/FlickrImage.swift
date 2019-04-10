@@ -6,24 +6,25 @@
 //  Copyright © 2019 Matthew. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-struct FlickrResponse: Decodable {
-    let photos: FlickrPhotoResponse
+class FlickrImage {
     
-}
-
-struct FlickrPhotoResponse: Decodable {
-    let photo: [FlickrPhotoData]
-}
-
-struct FlickrPhotoData: Decodable {
-    let id: String
-    let owner: String
-    let secret: String
-    let server: String
-    let farm: Int
-    let title: String
-    let ispublic: Int
+    var photoData: FlickrPhotoData?
+    var thumbnail: UIImage?
+    var full: UIImage?
+    
+    init(photoData: FlickrPhotoData) {
+        self.photoData = photoData
+    }
+    
+    var thumbnailURL: String? {
+        guard let photo = photoData else { return nil }
+        return "https://farm\(photo.farm).staticflickr.com/(photo.server)/\(photo.id)_\(photo.secret)_q.jpg"
+    }
+    
+    var fullURL: String? {
+        guard let photo = photoData else { return nil }
+        return "https://farm\(photo.farm).staticflickr.com/(photo.server)/\(photo.id)_\(photo.secret)_h.jpg"
+    }
 }

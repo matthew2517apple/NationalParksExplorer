@@ -17,8 +17,8 @@ enum FlickrServiceError: Error {
 
 class FlickrService {
     
-    // TODO: replace this key:
-    let apiKey = "c213e2d6cc8ee75c8ff471cbf955ac40"
+    // secret: 8a9a3383f68827ae
+    let apiKey = "3a933f2bc5cdad829d3504b81f50659a"
     
     func searchPhotos(query: String, completion: @escaping ([FlickrPhotoData]?, Error?) -> Void) {
         
