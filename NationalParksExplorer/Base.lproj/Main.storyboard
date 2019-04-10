@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r4P-S7-WkC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,36 +19,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GeE-VR-JOA">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a state" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Syr-do-u6Z">
-                                        <rect key="frame" x="130" y="0.0" width="115" height="25"/>
+                                        <rect key="frame" x="130" y="0.0" width="115" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGA-uh-q8S">
-                                        <rect key="frame" x="27.5" y="25" width="320" height="262"/>
+                                        <rect key="frame" x="27.5" y="23" width="320" height="244.5"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBG-Qb-dkH">
-                                        <rect key="frame" x="147.5" y="287" width="80" height="36.5"/>
+                                        <rect key="frame" x="147.5" y="267.5" width="80" height="34"/>
                                         <state key="normal" title="Show Parks"/>
                                         <connections>
                                             <action selector="showParksButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gvg-lB-T7H"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a park" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGP-t2-2ZW">
-                                        <rect key="frame" x="132.5" y="323.5" width="110.5" height="25"/>
+                                        <rect key="frame" x="132.5" y="301.5" width="110.5" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UzA-ng-78D">
-                                        <rect key="frame" x="27.5" y="348.5" width="320" height="262"/>
+                                        <rect key="frame" x="27.5" y="324.5" width="320" height="244.5"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y19-c5-DuN">
-                                        <rect key="frame" x="141" y="610.5" width="93" height="36.5"/>
+                                        <rect key="frame" x="141" y="569" width="93" height="34"/>
                                         <state key="normal" title="Explore Parks"/>
+                                        <connections>
+                                            <segue destination="uiV-6M-RSt" kind="show" identifier="explorePark" id="n7j-5u-bJR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -67,6 +70,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="awX-J9-2iV"/>
                     <connections>
                         <outlet property="loadingIndicator" destination="YrX-fM-KjP" id="Ndj-hv-i5n"/>
                         <outlet property="parkPickerView" destination="UzA-ng-78D" id="Gnj-o1-apO"/>
@@ -75,6 +79,92 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="984.79999999999995" y="37.331334332833585"/>
+        </scene>
+        <!--Image Collection View Controller-->
+        <scene sceneID="g92-3l-0M8">
+            <objects>
+                <collectionViewController id="uiV-6M-RSt" customClass="ImageCollectionViewController" customModule="NationalParksExplorer" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="WME-Ps-7r7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qfd-s2-802">
+                            <size key="itemSize" width="75" height="75"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UICollectionViewCell" id="qvx-5C-cnd" customClass="PhotoCell" customModule="NationalParksExplorer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tsb-GD-lNb">
+                                            <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="75" id="MbF-9F-hQg"/>
+                                                <constraint firstAttribute="width" constant="75" id="aHN-QI-VEl"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="tsb-GD-lNb" secondAttribute="bottom" id="MbL-hR-3dw"/>
+                                    <constraint firstAttribute="trailing" secondItem="tsb-GD-lNb" secondAttribute="trailing" id="TCo-F7-NAf"/>
+                                    <constraint firstItem="tsb-GD-lNb" firstAttribute="leading" secondItem="qvx-5C-cnd" secondAttribute="leading" id="pvG-wv-Km2"/>
+                                    <constraint firstItem="tsb-GD-lNb" firstAttribute="top" secondItem="qvx-5C-cnd" secondAttribute="top" id="uv0-CB-WxB"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="image" destination="tsb-GD-lNb" id="rEu-Cu-wXs"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="uiV-6M-RSt" id="sVQ-bQ-jQx"/>
+                            <outlet property="delegate" destination="uiV-6M-RSt" id="vNI-Br-nZG"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ent-j0-OYU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1823" y="35"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="d0v-99-a6R">
+            <objects>
+                <viewController id="G3p-Nf-pNs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fQe-tH-zDR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ufT-4b-cSX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XJC-Gb-JH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2636" y="42"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GJu-OY-9R8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r4P-S7-WkC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hVC-f6-7fY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="yVD-eK-6Mr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y6L-BS-7Lt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="37"/>
         </scene>
     </scenes>
 </document>

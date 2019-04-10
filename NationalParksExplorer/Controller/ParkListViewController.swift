@@ -68,5 +68,16 @@ class ParkListViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "explorePark" {
+            let selectedRow = parkPickerView.selectedRow(inComponent: 0)
+            let park = parkPicker?.parkFor(row: selectedRow)
+            
+            let imageViewController = segue.destination as! ImageCollectionViewController
+            imageViewController.park = park
+        }
+    }
+    
 }
 
