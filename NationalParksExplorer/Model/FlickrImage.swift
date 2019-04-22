@@ -25,6 +25,7 @@ class FlickrImage {
     
     var fullURL: String? {
         guard let photo = photoData else { return nil }
-        return "https://farm\(photo.farm).staticflickr.com/(photo.server)/\(photo.id)_\(photo.secret)_h.jpg"
+        // The following edited thanks to Cara's post in the Slack:
+        return "https://farm\(photo.farm).staticflickr.com/(photo.server)/\(photo.id)_\(photo.secret)_b.jpg"
     }
 }
